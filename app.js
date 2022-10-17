@@ -1,17 +1,19 @@
 Vue.createApp({
-    data(){
-        return {
-           goals: [],
-           enteredValue: ''
-        };
-    },
+  data() {
+    return {
+      goals: [],
+      enteredValue: "",
+    };
+  },
 
-    methods:{
-        addGoal(){
-            this.goals.push(this.enteredValue)
-        }
-    }
-})
+  methods: {
+    addGoal() {
+      this.goals.push(this.enteredValue);
+      //Clear input field
+      this.enteredValue = "";
+    },
+  },
+}).mount("#app");
 
 // const inputEl = document.querySelector('input');
 // const listEl = document.querySelector('ul');
@@ -21,4 +23,4 @@ Vue.createApp({
 //     listItemEl.textContent = enteredValue;
 //     listEl.appendChild(listItemEl);
 // }
-// buttonEl.addEventListener('click', addGoal); 
+// buttonEl.addEventListener('click', addGoal);

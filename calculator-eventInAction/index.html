@@ -18,9 +18,34 @@
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button>Add</button>
-      <button>Remove</button>
+      <button v-on:click="increeement(10)">Add</button>
+      <button v-on:click.right="decreement(5)">Remove</button>
+
+      <!-- Preserving Initial state we use v-once -->
+      <p v-once>Starting counter: {{ counter }}</p>
       <p>Result: {{ counter }}</p>
+      <!-- <input
+        type="text"
+        v-bind:value="name"
+        v-on:input="setName($event, 'Mukuna')"
+        v-on:keyup.enter="confirmInput"
+      /> -->
+      <!-- Another way to set input and reset input  v-model="name" is =  v-bind:value="name"
+        v-on:input="setName($event, 'Mukuna')" this cocept it call two way bunding-->
+      <input type="text" v-model="name" />
+      <input type="text" v-model="lastname" />
+      <button v-on:click="resetInput">Reset Input Field</button>
+      <p>Your Name: {{ fullName }}</p>
+      <!-- Event Modifier, the .prevent after the vue.js directive v-on:submit will prevent the browser to reload when form it submit   -->
+      <form v-on:submit.prevent="submitForm">
+        <input type="text" />
+        <button>UpdateText</button>
+      </form>
     </section>
   </body>
 </html>
+
+
+<!-- Short end to write all directive such as 
+- v-on:click can be writen @click
+- v-bind:value="...." = :value -->

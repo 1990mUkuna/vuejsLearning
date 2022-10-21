@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Course Goals</h1>
+    </header>
+    <section id="user-goals">
+      <h2>My course goals</h2>
+      <input type="text" v-model="enterdGoalValue" />
+      <button @click="addGoal">Add Goal</button>
+      <p v-if="goals.length === 0">
+        No goals have been added yet - please start adding some!
+      </p>
+      <!-- <ul v-if="goals.length > 0"></ul> you can use v-else, note v-else should come afte v-if no element in between -->
+      <ul v-else-if="goals.length > 0">
+        <!-- <li v-for="goal in goals">{{ goal }}</li> -->
+        <li
+          v-for="(goal, index) in goals"
+          :key="goal"
+          @click="removeGoal(index)"
+        >
+          <p>
+            {{ goal }} - {{ index }}
+          </p>
+          <input type="text" @click.stop />
+          <!--  {{ goal }} - {{ index }} -->
+        </li>
+      </ul>
+      <p v-else>.....</p>
+      <!-- The diferent between v-if and v-show  
+      v-if : remove element from the dom
+      v-show: only hide element, set element to none  -->
+
+      <!-- <p v-show="goals.length === 0">
+        No goals have been added yet - please start adding some!
+      </p> 
+      <ul v-show="goals.length > 0">
+        <li>Goal</li>
+      </ul>  -->
+
+      <!-- loop through object instead of an array -->
+      <ul>
+        <!-- <li v-for="value in { name: 'Max', age: 31}">{{value}}</li> -->
+        <!-- <li v-for="(value, key, index) in { name: 'Max', age: 31}">
+          {{key}}:{{value}}-{{index}}
+        </li> -->
+      </ul>
+
+      <!-- you can also use v-for to output list of number -->
+      <!-- <ul>
+        <li v-for="num in 10">{{ num }}</li>
+      </ul> -->
+    </section>
+  </body>
+</html>

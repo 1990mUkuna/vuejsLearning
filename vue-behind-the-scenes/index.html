@@ -18,9 +18,31 @@
     </header>
     <section id="app">
       <h2>How Vue Works</h2>
-      <input type="text" @input="saveInput">
+      <!--  ref gives you more controll of input field ie:if you want to validate user input
+      -->
+      <input type="text" ref="userText" />
       <button @click="setText">Set Text</button>
       <p>{{ message }}</p>
     </section>
+    <!-- You can have multiple app  -->
+    <!-- Section is the same as template  -->
+    <section id="app2">
+      <h2>How Vue Works App 2</h2>
+    </section>
   </body>
 </html>
+
+<!-- 
+  ******Vues vs Dom *******
+What vues does behind the scene, whener we change something 
+
+Vue detect the change, 'Thanks to the reactivity ', it create new virtual dom, and compare it to the old virtual dom 
+
+And detect the differences the update the part in the real dom where differences wwas detected 
+
+******Vues instance lifecycle *******
+
+
+
+
+-->
